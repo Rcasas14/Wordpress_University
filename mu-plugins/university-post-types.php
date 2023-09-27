@@ -1,5 +1,6 @@
 <?php 
 function university_post_types() {
+    // post type : event
     register_post_type('event', array(
         'supports' => array('title', 'editor', 'excerpt'),
         'rewrite' => array('slug' => 'events'),
@@ -16,6 +17,24 @@ function university_post_types() {
         'description' => 'Latest events for you',
         'menu_icon'=> 'dashicons-calendar'
         ));
+
+        // post type : program
+        register_post_type('program', array(
+            'supports' => array('title', 'editor'),
+            'rewrite' => array('slug' => 'programs'),
+            'has_archive' => true,
+            'public' => true,
+            'show_in_rest' => 'true',
+            'labels'=> array(
+                'name'=> 'Programs',
+                'add_new_item' => 'Add New Program',
+                'edit_item' => 'Edit Program',
+                'all_items' => 'All Program',
+                'singular_name' => 'Program'  
+            ),
+            'description' => 'The Program Page',
+            'menu_icon'=> 'dashicons-awards'
+            ));
 }
 add_action('init', 'university_post_types');
 ?>

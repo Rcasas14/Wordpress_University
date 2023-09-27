@@ -5,11 +5,9 @@
     <div class="page-banner__bg-image"
         style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg') ?>)"></div>
     <div class="page-banner__content container container--narrow">
-        <h1 class="page-banner__title"><?php 
-        the_archive_title();
-        ?></h1>
+        <h1 class="page-banner__title">All Events</h1>
         <div class="page-banner__intro">
-            <p><?php the_archive_description(); ?></p>
+            <p>All Events from the university</p>
         </div>
     </div>
 </div>
@@ -19,22 +17,26 @@
     the_post(); ?>
     <div class="event-summary">
         <a class="event-summary__date t-center" href="<?php echo get_permalink(); ?>">
-          <span class="event-summary__month"><?php 
+            <span class="event-summary__month"><?php 
           $eventDate = new DateTime(get_field('event_date')); //custom field at field name
           echo $eventDate->format('M');
           ?></span>
-          <span class="event-summary__day"><?php echo $eventDate->format('d') ?></span>
+            <span class="event-summary__day"><?php echo $eventDate->format('d') ?></span>
         </a>
         <div class="event-summary__content">
-          <h5 class="event-summary__title headline headline--tiny"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
-          <p><?php echo wp_trim_words(get_the_content(), 18); ?><a href="<?php echo get_permalink(); ?>"
-              class="nu gray">Learn more</a></p>
+            <h5 class="event-summary__title headline headline--tiny"><a
+                    href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
+            <p><?php echo wp_trim_words(get_the_content(), 18); ?><a href="<?php echo get_permalink(); ?>"
+                    class="nu gray">Learn more</a></p>
         </div>
-      </div>
+    </div>
 
     <?php }
     echo paginate_links();
   ?>
+
+    <hr class="section-break">
+    <p>Recap for Past Events, <a href="<?php echo site_url('/past-events'); ?>">Check it here!</a>.</p>
 
 </div>
 
